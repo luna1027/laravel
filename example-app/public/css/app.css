@@ -1,0 +1,21 @@
+* {
+    text-decoration: none;
+}
+
+body {
+    width: fit-content;
+    margin: auto;
+}
+
+a:hover {
+    font-weight: bolder;
+}
+
+h2 {
+    color: aliceblue;
+}
+
+.cent {
+    text-align: center;
+    margin: auto;
+}
