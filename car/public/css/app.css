@@ -1,0 +1,29 @@
+body {
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ct {
+    text-align: center;
+}
+
+.flex {
+    width: 100%;
+    display: flex;
+}
+
+.idx-img {
+    width: 50%;
+    text-align: center;
+}
+
+.idx-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
