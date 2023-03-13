@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::post('students/add', function ($id) {
-    
 });
+Route::get('students/export/', [StudentsController::class, 'export']);
 Route::resource('students', StudentsController::class);
+

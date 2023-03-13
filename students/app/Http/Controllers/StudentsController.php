@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentsController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
@@ -63,7 +67,9 @@ class StudentsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        Student::where('id', $id)->update(['name' => $data['name'], 'age' => $data['age']]);
+        return redirect('students');
     }
 
     /**
@@ -71,6 +77,11 @@ class StudentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Student::where('id', $id)->delete();
+    }
+
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

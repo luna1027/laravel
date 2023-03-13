@@ -1,5 +1,4 @@
 @extends('layouts.students')
-
 @section('title', 'Index')
 
 @section('header', 'Index')
@@ -19,7 +18,7 @@
                 <td>{{ $student['age'] }}</td>
                 <td>
                     <a href="{{ route('students.show', $student->id) }}">Show</a>
-                    <a href="">Delete</a>
+                    <button type="button" onclick="del({{ $student->id }})">Delete</button>
                 </td>
             </tr>
         @endforeach
@@ -29,3 +28,21 @@
 @section('a')
     <a href="{{ route('students.create') }}">Add Student</a>
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    function del(id) {
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: `students/${id}`,
+            type: 'DELETE',
+            success: function() {
+                location.reload();
+            }
+        })
+    }
+</script>

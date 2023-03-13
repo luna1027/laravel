@@ -5,17 +5,17 @@
 @section('header', 'Show Student')
 
 @section('container')
-    <form action="" method="post">
+    <form action="{{ route('students.update', $data->id) }}" method="post">
         <table>
-
+            @method('PUT')
             @csrf
             <tr>
                 <th>Name</th>
-                <td><input type="text" value="{{ $data['name'] }}"></td>
+                <td><input type="text" name="name" value="{{ $data['name'] }}"></td>
             </tr>
             <tr>
                 <th>Age</th>
-                <td><input type="text" value="{{ $data['age'] }}"></td>
+                <td><input type="text" name="age" value="{{ $data['age'] }}"></td>
             </tr>
             <tr>
                 <td colspan="2">

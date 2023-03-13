@@ -18,7 +18,7 @@
         <tr>
             <td colspan="2">
                 <a href="{{ route('students.edit', $data->id) }}">Edit</a>
-                <button type="button">back</button>
+                <button type="button" onclick="history.go(-1)">back</button>
             </td>
         </tr>
     </table>
